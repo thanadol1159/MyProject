@@ -1,8 +1,8 @@
-import { students } from "./students.js"
-import { lecturers } from "./lecturers.js"
-const getbtn = document.getElementById('buttonPanel')
-const btn1 = getbtn.children[0]
-const btn2 = getbtn.children[1]
+// import { students } from "./students.js"
+// import { lecturers } from "./lecturers.js"
+// const getbtn = document.getElementById('buttonPanel')
+// const btn1 = getbtn.children[0]
+// const btn2 = getbtn.children[1]
 
 // let handler = 
 //     ('click',(event)=>{
@@ -48,24 +48,24 @@ const btn2 = getbtn.children[1]
 //     }
 // }
 
-const list = (event)=>{
-    const item = event.target.id === '1' ? students : lecturers
-    console.log(item);
-    const ul  = document.querySelector('ul')
-    ul.textContent = ''
-    for (let i = 0; i < item.length; i++) {
-        const li  = document.createElement('li')
-        let value = ''
-        for (const key in item[i]) {
-                value = value+`${key}: ${item[i][key]}`
+// const list = (event)=>{
+//     const item = event.target.id === '1' ? students : lecturers
+//     console.log(item);
+//     const ul  = document.querySelector('ul')
+//     ul.textContent = ''
+//     for (let i = 0; i < item.length; i++) {
+//         const li  = document.createElement('li')
+//         let value = ''
+//         for (const key in item[i]) {
+//                 value = value+`${key}: ${item[i][key]}`
                 
-            }
-            li.textContent = value
-          ul.appendChild(li)   
-     }
+//             }
+//             li.textContent = value
+//           ul.appendChild(li)   
+//      }
     
     
-}
+// }
 // const list = (items) => {
 //     const ulParentElement = document.querySelector('ul')
 //     ulParentElement.textContent = ''   
@@ -79,7 +79,18 @@ const list = (event)=>{
 //         ulParentElement.appendChild(liElement)
 //     }
 // }
-const studentHandler =()=>{list(students)}
-const lecHandler = () =>{list(lecturers)}
-btn1.addEventListener('click', list)
-btn2.addEventListener('click',list)
+// const studentHandler =()=>{list(students)}
+// const lecHandler = () =>{list(lecturers)}
+// btn1.addEventListener('click', list)
+// btn2.addEventListener('click',list)
+
+const input = document.getElementById('value')
+const p = document.getElementById('display')
+// input.addEventListener('keypress',(event)=>{
+//     if (event.key === 'Enter') {
+//         p.textContent=input.value
+//     }
+// })
+input.addEventListener('input',()=>{
+    p.textContent =  input.value
+})
