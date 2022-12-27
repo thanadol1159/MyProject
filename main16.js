@@ -99,6 +99,7 @@ const createBtn = document.getElementById('submit')
 createBtn.addEventListener('click', (event) => {
   event.preventDefault()
   const allInputEles=document.querySelectorAll('input')
+  const allItem = document.querySelecterAll('input')
   const isValidInput = Array.from(allInputEles).every(
     (inputEle) => inputEle.value.length !== 0  )
   const pEle = document.querySelector('p')
