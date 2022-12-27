@@ -1,55 +1,47 @@
-// const { template } = require('@babel/core')
-// const products = require('./data/products.js')
-import { products } from './data/products.js'
+// import { products } from './data/products.js'
+const { template } = require('@babel/core')
+const products = require('./data/products.js')
+
 //your student id, firstname, and lastname here
-//64130500035 Thanadol saengsawng
-function itemList(userItems) {
-  const items = userItems  
+// 64130500035  thanadol saengsawang
+function itemList(userItems) { 
+  const items = userItems
 
   const initialPage = () => {
-    const btn = document.querySelectorAll('button')
-    
-    btn.forEach(e => {
-    e.addEventListener('click',filterItemsByCategoryHandler)
-    });
+    const input = document.querySelector('input')
+    input.addEventListener('input',filterItemsHandler)
     showItems(items)
   }
 
-  const filterItemsByCategoryHandler = (event) => {
-    const btn = document.querySelectorAll('button')
-    const cur = event?.target.id
-    btn.forEach(a =>{
-      a.style = 'background-color:lightgray'
-    })
-
-    const ctar = document.getElementById(cur)
-    ctar.style = 'background-color:yellow'
-
-    const filteredItems = products.filter((product) => {
-      return product.category.toLowerCase() === cur.toLowerCase()
-    })
-    showItems(filteredItems)
+  const filterItemsHandler = (event) => {
+    const inputKey = event.target.value
+    let filterItem = items.filter((product)=>
+    product.keywords.toLowerCase().includes(inputKey.toLowerCase()))
+    console.log(filterItem.length);
+    showItems(filterItem)
+  
   }
 
   const showItems = (items) => {
-    const ul = document.getElementById('items')
-    ul.textContent= ''
-    for (let i = 0; i < items.length; i++) {
+    const ul  = document.getElementById('items')
+    ul.textContent = ''
+    for (const product of items) {
       const li = document.createElement('li')
-      li.textContent = `ID:${items[i].id}, NAEM:${items[i].name}, CATEGORY:${items[i].category}`
+      li.textContent = `ID:${product.id}, NAME:${product.name}, KEYWORDS:${product.keywords}`
       ul.appendChild(li)
+      
     }
-
-  }
-
+}
+  
   return {
     initialPage,
-    filterItemsByCategoryHandler,
+    filterItemsHandler,
     showItems
   }
+
 }
-// module.exports = itemList
-export { itemList }
-const { initialPage, filterItemsByCategoryHandler, showItems } =
-  itemList(products)
-initialPage()
+module.exports = itemList
+// export { itemList }
+// const { initialPage, filterItemsHandler, showItems } = itemList(products)
+// initialPage()
+
