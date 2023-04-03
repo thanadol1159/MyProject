@@ -1,0 +1,25 @@
+meaning  inversion of control
+เป็นคอนเซปที่จัดการกับ component dependencies เพื่อลดการผูกมัดระหว่าง module และ object
+
+main benefit inversion of control
+ลดความผูกมัดของ object
+ช่วยเพิ่มความสามารถในการ test 
+reuse code ของ business logic ได้
+inject ตอน runtime ได้ ไม่ต้องจัดการ object
+
+meaning depndency injecttion
+เป็นรูปแบบในการ implement ของ Ioc โดยการ inject object ผ่าน constructor
+
+relation ship inversion of Control and depndency injecttion
+depndency inject เป็นวิธีนึงของ inversion of Control ในการใส่ object เข้าไป
+
+diff prototype single scope
+single มี 1 instance ใน container และ share object บน class
+prototype cloning instance ขึ้นใหม่หลาย instance ได้
+
+TTFT
+
+
+
+
+
