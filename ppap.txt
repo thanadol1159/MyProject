@@ -17,9 +17,6 @@ diff prototype single scope
 single มี 1 instance ใน container และ share object บน class
 prototype cloning instance ขึ้นใหม่หลาย instance ได้
 
-TTFT
-
-
-
+https://drive.google.com/drive/folders/1eT-wnRLbH4ffTdXWE7CIvcL7j_RkCFJa
 
 
